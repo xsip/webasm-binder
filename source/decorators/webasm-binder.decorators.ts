@@ -15,11 +15,11 @@ export const getWebasmModuleFromClassName =
 
         if (resolutionType === EModuleResolutionType.require) {
             AsmInstanceStore.asmModuleLocation[target.name] = resolveLocation;
-            const buf: any = fs.readFileSync(`${process.cwd()}/dist/demo/${target.name}.wasm`);
+            const buf: any = fs.readFileSync(`${resolveLocation}/${target.name}.wasm`);
             const wasmModule: any = new WebAssembly.Module(new Uint8Array(buf));
             AsmInstanceStore.instanceFor[target.name] = new WebAssembly.Instance(wasmModule);
         } else {
-            const fetchPromise = fetch(`assets/modules${target.name}.wasm`);
+            const fetchPromise = fetch(`${resolveLocation}/${target.name}.wasm`);
             AsmInstanceStore.instanceFor[target.name] = WebAssembly.instantiate(fetchPromise);
         }
 
