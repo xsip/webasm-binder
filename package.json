@@ -4,6 +4,7 @@
   "description": "bind webassembly module functions to typescript functions",
   "main": "index.js",
   "scripts": {
+    "demo": "tsc && node dist/demo/demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/xsip/webasm-binder/issues"
   },
-  "homepage": "https://github.com/xsip/webasm-binder#readme"
+  "homepage": "https://github.com/xsip/webasm-binder#readme",
+  "devDependencies": {
+    "@types/node": "^10.1.0",
+    "@types/webassembly-js-api": "0.0.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
 }
